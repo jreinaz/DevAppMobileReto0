@@ -27,9 +27,7 @@ public class TicTacToeGame {
     }
 
     public void setMove(char player, int location){
-        if(mBoard[location] == OPEN_SPOT){
-            mBoard[location] = player;
-        }
+        mBoard[location] = player;
         return;
     }
 
@@ -99,13 +97,15 @@ public class TicTacToeGame {
         for (int i = 0; i < BOARD_SIZE; i++) {
             if (mBoard[i] != HUMAN_PLAYER && mBoard[i] != COMPUTER_PLAYER) {
                 char curr = mBoard[i];
-                mBoard[i] = COMPUTER_PLAYER;
+                //mBoard[i] = COMPUTER_PLAYER;
+                setMove(COMPUTER_PLAYER, i);
                 if (checkForWinner() == 3) {
                     //System.out.println("Computer is moving to " + (i + 1));
                     return i;
+                }else{
+                    //mBoard[i] = curr;
+                    setMove(curr, i);
                 }
-                else
-                    mBoard[i] = curr;
             }
         }
 
@@ -113,14 +113,17 @@ public class TicTacToeGame {
         for (int i = 0; i < BOARD_SIZE; i++) {
             if (mBoard[i] != HUMAN_PLAYER && mBoard[i] != COMPUTER_PLAYER) {
                 char curr = mBoard[i];   // Save the current number
-                mBoard[i] = HUMAN_PLAYER;
+                //mBoard[i] = HUMAN_PLAYER;
+                setMove(HUMAN_PLAYER, i);
                 if (checkForWinner() == 2) {
-                    mBoard[i] = COMPUTER_PLAYER;
+                    //mBoard[i] = COMPUTER_PLAYER;
+                    setMove(COMPUTER_PLAYER, i);
                     //System.out.println("Computer is moving to " + (i + 1));
                     return i;
+                }else{
+                    //mBoard[i] = curr;
+                    setMove(curr, i);
                 }
-                else
-                    mBoard[i] = curr;
             }
         }
 
@@ -132,7 +135,8 @@ public class TicTacToeGame {
 
         //System.out.println("Computer is moving to " + (move + 1));
 
-        mBoard[move] = COMPUTER_PLAYER;
+        //mBoard[move] = COMPUTER_PLAYER;
+        setMove(COMPUTER_PLAYER, move);
         return move;
     }
 }

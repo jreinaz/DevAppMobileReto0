@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 
 public class AndroidTicTacToeActivity extends AppCompatActivity {
 
+    private boolean mGameOver;
     private TicTacToeGame mGame;
     // Buttons making up the board
     private Button mBoardButtons[];
@@ -30,6 +33,7 @@ public class AndroidTicTacToeActivity extends AppCompatActivity {
 
     // Set up the game board.
     private void startNewGame() {
+        mGameOver = false;
         mGame.clearBoard();
         // Reset all buttons
         for (int i = 0; i < mBoardButtons.length; i++) {
@@ -38,7 +42,8 @@ public class AndroidTicTacToeActivity extends AppCompatActivity {
             mBoardButtons[i].setOnClickListener(new ButtonClickListener(i));
         }
         // Human goes first
-        mInfoTextView.setText("You go first.");
+        //mInfoTextView.setText("You go first.");
+        mInfoTextView.setText(R.string.first_human);
     }
 
     @Override
@@ -61,30 +66,52 @@ public class AndroidTicTacToeActivity extends AppCompatActivity {
         startNewGame();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        menu.add("New Game");
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        startNewGame();
+        return true;
+    }
+
     private class ButtonClickListener implements View.OnClickListener {
         int location;
         public ButtonClickListener(int location) {
             this.location = location;
         }
         public void onClick(View view) {
-            if (mBoardButtons[location].isEnabled()) {
+            if (mBoardButtons[location].isEnabled() && mGameOver == false) {
                 setMove(TicTacToeGame.HUMAN_PLAYER, location);
-// If no winner yet, let the computer make a move
+                // If no winner yet, let the computer make a move
                 int winner = mGame.checkForWinner();
                 if (winner == 0) {
-                    mInfoTextView.setText("It's Android's turn.");
+                    //mInfoTextView.setText("It's Android's turn.");
+                    mInfoTextView.setText(R.string.turn_computer);
                     int move = mGame.getComputerMove();
                     setMove(TicTacToeGame.COMPUTER_PLAYER, move);
                     winner = mGame.checkForWinner();
                 }
-                if (winner == 0)
-                    mInfoTextView.setText("It's your turn.");
-                else if (winner == 1)
-                    mInfoTextView.setText("It's a tie!");
-                else if (winner == 2)
-                    mInfoTextView.setText("You won!");
-                else
-                    mInfoTextView.setText("Android won!");
+                if (winner == 0){
+                    //mInfoTextView.setText("It's your turn.");
+                    mInfoTextView.setText(R.string.turn_human);
+                }else if (winner == 1){
+                    mGameOver = true;
+                    //mInfoTextView.setText("It's a tie!");
+                    mInfoTextView.setText(R.string.result_tie);
+                }else if (winner == 2){
+                    mGameOver = true;
+                    //mInfoTextView.setText("You won!");
+                    mInfoTextView.setText(R.string.result_human_wins);
+                }else{
+                    mGameOver = true;
+                    //mInfoTextView.setText("Android won!");
+                    mInfoTextView.setText(R.string.result_computer_wins);
+                }
             }
         }
     }
