@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <co.edu.unal.tictactoe.BoardView
+        android:id="@+id/board"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="5dp"/>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="right"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/information"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="right"
+            android:text="info"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/human_score"
+            android:gravity="right"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="info"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/tie_score"
+            android:gravity="right"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="info"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp" />
+        <TextView
+            android:id="@+id/computer_score"
+            android:gravity="right"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="info"
+            android:layout_marginTop="20dp"
+            android:textSize="20dp" />
+    </LinearLayout>
+</RelativeLayout>
