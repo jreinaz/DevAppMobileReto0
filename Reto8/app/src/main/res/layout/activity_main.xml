@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/contact_nit_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="contact_nit_number"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/company_name_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="company_name"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/web_page_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="webpage_url"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/contact_phone_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="contact_phone"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/contact_email_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="contact_email"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/products_services_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="products_services"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/is_consultant_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="is_consultant?"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/is_custom_development_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="is_custom_dev?"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/is_software_factory_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:hint="is_software_factory?"
+        android:inputType="text" />
+
+    <GridLayout android:layout_height="55dp"
+                android:layout_width="411dp"
+                android:columnCount="3"
+                android:rowCount="1">
+        <Button
+            android:id="@+id/create_contact_button"
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Create Contact" />
+
+        <Button
+            android:id="@+id/update_contact_button"
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Update Contact" />
+
+        <Button
+            android:id="@+id/delete_contact_button"
+            android:layout_width="137dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Delete Contact" />
+    </GridLayout>
+    <Button
+        android:id="@+id/available_contacts_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="Get_Available_Contacts" />
+    <ListView
+        android:id="@+id/available_contacts_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
